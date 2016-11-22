@@ -13,15 +13,22 @@
         <ui:composition template="/predlozak/master.xhtml">                     
             <ui:define name="tjelo">
                 <div class="container">
-                <h3>Svi korisnici sistema</h3>
+                <h3>Administracija sistema</h3>
                 <br/>
+                
                 <div class="col-sm-3">
-                    Neki linkovi
+                    <b>Meni:</b><br/>
+                        <nav class="nav nav-pills nav-stacked">
+                        <a class="nav-link active fade in" href="#">Svi korisnici sistema</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                        </nav>
                 </div>
                 <div class="col-sm-9">
                 <h:form id="listF1">
                    
-                    <h:dataTable value="#{webKorisnik.dtmdl}" var="Korisnik"  class="table table-striped  table-hover  text-justify table-responsive " id="sviKorisnici" > 
+                    <h:dataTable value="#{wKorisnik.dtmdl}" var="Korisnik"  class="table table-striped  table-hover  text-justify table-responsive " id="sviKorisnici" > 
                                              <h:column  > 
                                         <f:facet name="header" >ID</f:facet>#{Korisnik.id}
                                         </h:column>                           
@@ -48,34 +55,34 @@
                  <div >
                                         
                                             
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{webKorisnik.firstPage()}"
-                                                      jsf:disabled="#{not webKorisnik.imaLiPrije()}">
+                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik.firstPage()}"
+                                                      jsf:disabled="#{not wKorisnik.imaLiPrije()}">
                                                 <span class="fa fa-step-backward"></span>
                                             </button>
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{webKorisnik.previous}"
-                                                      jsf:disabled="#{not webKorisnik.imaLiPrije()}">
+                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik.previous}"
+                                                      jsf:disabled="#{not wKorisnik.imaLiPrije()}">
                                                 <span class="fa fa-backward"></span>
                                             </button>
                                             &#xA0;
-                                            <span class="text-primary">#{webKorisnik.currPage}/#{webKorisnik1.finalPage}</span>
+                                            <span class="text-primary">#{wKorisnik.currPage}/#{wKorisnik.finalPage}</span>
                                             &#xA0;
-                                            <button  class="btn btn-default btn-sm" jsf:disabled="#{not webKorisnik.imaLiJos()}"
-                                                     jsf:action="#{webKorisnik.next()}" >
+                                            <button  class="btn btn-default btn-sm" jsf:disabled="#{not wKorisnik.imaLiJos()}"
+                                                     jsf:action="#{wKorisnik.next()}" >
                                                 <span class="fa fa-forward"></span>
                                             </button>
 
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{webKorisnik1.lastPage()}"
-                                                      jsf:disabled="#{webKorisnik.currPage eq webKorisnik.finalPage}">
+                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik1.lastPage()}"
+                                                      jsf:disabled="#{wKorisnik.currPage eq wKorisnik.finalPage}">
                                                 <span class="fa fa-step-forward"></span>
                                             </button>
                                             &#xA0; 
                                             
-                                            <h:selectOneMenu  class=" btn"   value="#{webKorisnik.pageSize}" 
+                                            <h:selectOneMenu  class=" btn"   value="#{wKorisnik.pageSize}" 
                                                                >
-                                                <f:selectItems  value="#{webKorisnik.page}" var="pg" 
+                                                <f:selectItems  value="#{wKorisnik.page}" var="pg" 
                                                                 itemLabel="#{pg}" 
                                                                 itemValue="#{pg}"/>
-                                                <f:ajax listener="#{webKorisnik.recreatePageSize}" render="listF1"/>
+                                                <f:ajax listener="#{wKorisnik.recreatePageSize}" render="listF1"/>
                                             </h:selectOneMenu>
                                             
                                             <br/>
@@ -83,9 +90,14 @@
                     <ui:remove>
                     Trenutna stranica #{webKorisnik.currPage}<br/>
                     Finalna stranica #{webKorisnik.finalPage}
-                    </ui:remove>
-                    pado #{webKorisnik1.pado}
-                           
+                    
+                    pado #{wKorisnik1.pado}<br/>
+                    currentPage #{wKorisnik.currPage}<br/>
+                    pageSize #{wKorisnik.pageSize}<br/>
+                    finalPage #{wKorisnik.finalPage}<br/>
+                    listaSize #{wKorisnik.velicinaListe}<br/>
+                    dtmdl #{wKorisnik.dtmdl.rowCount}
+                        </ui:remove>   
                 </h:form>
                 </div>
                 <br/>

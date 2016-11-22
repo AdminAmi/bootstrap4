@@ -26,21 +26,19 @@ import korisni.utility;
  */
 @ViewScoped
 @ManagedBean 
-public class WebKorisnik1 extends korisni.paginator{
+public class WKorisnik extends korisni.paginator{
     private Login.loginKontroler lk = new loginKontroler();
     private login selektovaniKorisnik = new login();
     private int selektovaniID, serverResponse;
     private String imePretraga, selektovaniTip;
 
-    public WebKorisnik1() {
+    public WKorisnik() {
         super();
-        initParameter();
-        
+        initParameter();        
     }
     private void initParameter(){
         setVelicinaListe(getLk().getKorisnici().size());
-        setFinalPage((getVelicinaListe()/getPageSize())+1);
-        
+        setFinalPage((getVelicinaListe()/getPageSize())+1);        
     }
     private List podLista(int firstIndex, int lastIndex) {
         return  lk.getKorisnici().subList(firstIndex ,lastIndex);
@@ -54,10 +52,9 @@ public class WebKorisnik1 extends korisni.paginator{
     }
     @Override
     public DataModel createDataModel() {
-      //  int pado1=getPageSize()*getCurrPage();
-      // if(pado1>lk.getKorisnici().size()) pado1=lk.getKorisnici().size();
-        if (getPado() >= getVelicinaListe()) setPado(getVelicinaListe());
-        return new ListDataModel(podLista(getPageSize()*(getCurrPage()-1),getPado()));
+      int pado1=getPageSize()*getCurrPage();
+      if(pado1>lk.getKorisnici().size()) pado1=lk.getKorisnici().size();        
+      return new ListDataModel(podLista(getPageSize()*(getCurrPage()-1),pado1));
     }
     
     public void ucitajOsobu(){

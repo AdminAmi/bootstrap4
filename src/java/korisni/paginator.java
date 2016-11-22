@@ -66,7 +66,7 @@ public abstract class paginator {
 
     public void recreatePageSize(AjaxBehaviorEvent e) {
         setCurrPage(1);
-        setFinalPage((getVelicinaListe()/pageSize)+1);
+        setFinalPage((getVelicinaListe()/getPageSize())+1);
         recreateModel();
        // return "home";
     }
@@ -82,7 +82,7 @@ public abstract class paginator {
     public void setCurrPage(int currPage) {   this.currPage = currPage;  }
     public int getFinalPage() {    return finalPage;   }
     public void setFinalPage(int fp) {this.finalPage = fp;}
-    public int getPado() {  return pageSize*currPage;   }//do kojeg indexa u
+    public int getPado() {  return getPageSize()*getCurrPage();   }//do kojeg indexa u
     public void setPado(int index) {this.pado=index;}
     public int getSelectedItemIndex() {   return selectedItemIndex;  }
     public void setSelectedItemIndex(int selectedItemIndex) {   this.selectedItemIndex = selectedItemIndex;  }
