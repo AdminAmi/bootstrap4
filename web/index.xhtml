@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <h:outputStylesheet library="resources" name="font-awesome-4.6.3/css/font-awesome.min.css" /> 
+        <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" library="resources"/>        
+        <h:outputScript name="bootstrap/js/jquery-2.2.4.min.js" library="resources"/>
+        <h:outputScript name="bootstrap/js/bootstrap.min.js" library="resources"/>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-fixed-top navbar-dark bg-inverse " style="background-color: white;">
+            <div class="container">
+                <!--
+                <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse" 
+                         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">                             
+                </button> 
+                -->
+                <h1 class="navbar-brand mb-0 "><i class="fa fa-folder-open-o" aria-hidden="true"></i><i>Doc</i>SERVIS</h1>
+                <!--
+                <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+                -->
+                      
+                     
+                   
+                    <h:form class="form-inline float-xs-right">                       
+                        <button class="btn btn-outline-success" data-toggle="modal" data-target="#myModal"  type="button" jsf:rendered="${!LogIn.testRegistracije}">
+                            Log in &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>
+                        </button>                                         
+                     </h:form> 
+                        
+                 <!--        
+                </div>
+                 -->
+            </div>
+        </nav>
+            
+         
+        <div class="jumbotron">
+            <div class="container">
+                <br/>
+                <h1 style="color: darkolivegreen"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
+              <p class="lead">Dobro došli na web servis skeniranih dokumenata </p>
+              <hr class="my-1"/>              
+            </div>
+        </div>
+         <div class="container">
+             
+        <h3>O programu!</h3>   
+               <ul class="small text-justify" style="list-style-type: none">
+                   
+               <li>
+                   Ideja ovoga projekta jeste da objedini na jednom mjestu dokumentaciju koja nastaje a koja je potrebna radnicima Tehničkog fakulteta u Bihaću.<br/>
+                   Sa lijeve strane imate navigaciju sa kojom ćete lako da pronađete željeni sadržaj. Tako da imate sadržaje:<br/><br/>
+                   <ul>
+                       <li><strong>Arhiva materijali sa Naučno nastavnih vijeća</strong> </li> 
+                       <li><strong>Arhiva ugovora o saradnji Tehničkog fakulteta u Bihaću</strong></li>
+                       <li><strong>Arhiva projekata Tehničkog fakulteta u Bihaću</strong> </li>
+                   </ul>
+                   <br/>
+                 
+                   <b >Napomena:</b><br/><br/>
+                   
+                   Za rad sa ovom aplikacijom najbolje je da koristite web preglednik : <b> 
+                       <a href=" https://www.google.com/chrome/index.html" target="_blank">Google chrome</a></b>   
+                   <br/>
+                   Također vrlo je važno da prilagodite jezik google chroma zbog toga što se koriste HTML 5 komponente za unos vremena i datuma.
+                   <br/>
+                   Detalje o tome kako promejniti jezik možete naći na stranici:<b>
+                       <a href="https://support.google.com/chromebook/answer/1059490?hl=en" target="_blank">Google support</a></b>  
+                   
+                   <br/>
+                   Ukoliko imate kakvih nejasnoća kontaktirajete sistem administratora.                  
+                  
+               </li>
+                  
+               </ul>
+         </div>
+        <div class="jumbotron">
+            <div class="container">
+                <hr class="my-0"/> 
+                <p class="lead float-xs-left">DocServis</p>
+              <p class="lead float-xs-right">Autor : Amel Džanić</p>
+                             
+            </div>
+        </div>
+        <!-- Modal 
+        <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" data-target=".bd-example-modal-lg" 
+             tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        -->
+        <!--login modal-->
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" data-target=".bd-example-modal-lg" 
+            tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="myModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Prijava na sistem</h4>
+              </div>
+              <h:form>
+              <div class="modal-body">
+                  <div class="input-group">
+                      <span class="input-group-addon" id="userNameSpan">Korisničko ime:</span>
+                      <h:inputText class="form-control" id="userName" p:aria-describedby="userNameSpan" value="#{LogIn.user}"/>
+                      <!--
+                      <input type="text" class="form-control" id="userName" aria-describedby="userNameSpan"/>
+                      -->
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                      <span class="input-group-addon" id="userPassSpan">Korisnička lozinka:</span>
+                      <!--
+                      <input type="password" class="form-control" id="userPassword" aria-describedby="userPassSpan"/>
+                      -->
+                      <h:inputSecret class="form-control" id="userPassword" p:aria-describedby="userPassSpan" value="#{LogIn.pass}"/>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <h:commandButton value="Prijava" class="btn btn-outline-success" action="#{LogIn.registracija()}"/>
+                <!--
+                <button type="button" class="btn btn-primary">Save changes</button>
+                -->
+              </div>
+              </h:form>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+           
+               
+        
+          
+    </h:body>
+</html>
+

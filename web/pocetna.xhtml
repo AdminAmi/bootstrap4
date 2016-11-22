@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>       
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/predlozak/master.xhtml">
+            <ui:remove>
+            <ui:define name="navigacija"> 
+                <ui:include src="/stranice/navigacija.xhtml"/>
+            </ui:define> 
+            
+            <ui:define name="jumboNav">
+                <ui:include src="/stranice/jumboNav.xhtml"/>
+            </ui:define>
+        </ui:remove>
+            
+            <ui:define name="tjelo">   
+                        
+                
+                <div class="container">
+                    <h3>O programu!</h3>  
+                        #{LogIn.korisnik.ime} sdaads
+                        <ul class="small text-justify" style="list-style-type: none">
+                           <li>
+                               Ideja ovoga projekta jeste da objedini na jednom mjestu dokumentaciju koja nastaje a koja je potrebna radnicima Tehničkog fakulteta u Bihaću.<br/>
+                               Sa lijeve strane imate navigaciju sa kojom ćete lako da pronađete željeni sadržaj. Tako da imate sadržaje:<br/><br/>
+                               <ul>
+                                   <li><strong>Arhiva materijali sa Naučno nastavnih vijeća</strong> </li> 
+                                   <li><strong>Arhiva ugovora o saradnji Tehničkog fakulteta u Bihaću</strong></li>
+                                   <li><strong>Arhiva projekata Tehničkog fakulteta u Bihaću</strong> </li>
+                               </ul>
+                               <br/>                 
+                               <b >Napomena:</b><br/><br/>
+                               Za rad sa ovom aplikacijom najbolje je da koristite web preglednik : <b> 
+                               <a href=" https://www.google.com/chrome/index.html" target="_blank">Google chrome</a></b>   
+                               <br/>
+                               Također vrlo je važno da prilagodite jezik google chroma zbog toga što se koriste HTML 5 komponente za unos vremena i datuma.
+                               <br/>
+                               Detalje o tome kako promejniti jezik možete naći na stranici:<b>
+                               <a href="https://support.google.com/chromebook/answer/1059490?hl=en" target="_blank">Google support</a></b> 
+                               <br/>
+                               Ukoliko imate kakvih nejasnoća kontaktirajete sistem administratora.
+                           </li>                  
+                       </ul>
+                </div>
+            </ui:define>
+            <ui:remove>
+            <ui:define name="footer">
+                <ui:include src="/stranice/footer.xhtml"/>
+            </ui:define>
+            </ui:remove>
+        </ui:composition>
+         
+    </h:body>
+</html>
+
