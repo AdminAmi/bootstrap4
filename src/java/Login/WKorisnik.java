@@ -7,8 +7,10 @@ package Login;
 
 import javax.faces.model.DataModel;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -18,6 +20,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.ListDataModel;
+
 import korisni.utility;
 
 /**
@@ -31,25 +34,33 @@ public class WKorisnik extends korisni.paginator{
     private login selektovaniKorisnik = new login();
     private int selektovaniID, serverResponse;
     private String imePretraga, selektovaniTip;
+    private Field[] polja;
 
     public WKorisnik() {
         super();
-        initParameter();        
+        initParameters(); 
+        
     }
-    private void initParameter(){
+    public List<Integer> getNumbers(){
+        List<Integer> listaStranica = new ArrayList();
+        for (int i=0;i<this.page.length;i++) listaStranica.add(new Integer(this.page[i]));
+        return listaStranica;
+    }
+    @Override
+    protected void initParameters(){
         setVelicinaListe(getLk().getKorisnici().size());
         setFinalPage((getVelicinaListe()/getPageSize())+1);        
     }
     private List podLista(int firstIndex, int lastIndex) {
         return  lk.getKorisnici().subList(firstIndex ,lastIndex);
     }
-    @Override
-    public void recreatePageSize(AjaxBehaviorEvent e) {
-        setCurrPage(1);
-        setFinalPage((getVelicinaListe()/pageSize)+1);
-        recreateModel();
-       // return "home";
-    }
+//    @Override
+//    public void recreatePageSize(AjaxBehaviorEvent e) {
+//        setCurrPage(1);
+//        setFinalPage((getVelicinaListe()/pageSize)+1);
+//        recreateModel();
+//       // return "home";
+//    }
     @Override
     public DataModel createDataModel() {
       int pado1=getPageSize()*getCurrPage();
@@ -85,6 +96,7 @@ public class WKorisnik extends korisni.paginator{
             return null;
         }  
     }
+   
 
     /**
      * @return the lk

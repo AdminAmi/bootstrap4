@@ -5,7 +5,8 @@
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp">
     <h:head>       
         <title>Facelet Title</title>
     </h:head>
@@ -13,6 +14,7 @@
         <ui:composition template="/predlozak/master.xhtml">                     
             <ui:define name="tjelo">
                 <div class="container">
+                    <br/>
                 <h3>Administracija sistema</h3>
                 <br/>
                 
@@ -77,8 +79,7 @@
                                             </button>
                                             &#xA0; 
                                             
-                                            <h:selectOneMenu  class=" btn"   value="#{wKorisnik.pageSize}" 
-                                                               >
+                                            <h:selectOneMenu  class=" btn"   value="#{wKorisnik.pageSize}">
                                                 <f:selectItems  value="#{wKorisnik.page}" var="pg" 
                                                                 itemLabel="#{pg}" 
                                                                 itemValue="#{pg}"/>
@@ -86,6 +87,20 @@
                                             </h:selectOneMenu>
                                             
                                             <br/>
+                                            <ezcomp:paginator NaPocetak="#{wKorisnik.firstPage()}"
+                                                              NaKraj="#{wKorisnik.lastPage()}"
+                                                              Prethodna="#{wKorisnik.previous()}"
+                                                              Sljedeca="#{wKorisnik.next()}"
+                                                              imaLiPrethodna="#{wKorisnik.imaLiPrije()}"
+                                                              imaLiSljedeca="#{wKorisnik.imaLiJos()}"
+                                                              finalnaStr="#{wKorisnik.finalPage}"
+                                                              trenutnaStr="#{wKorisnik.currPage}" />
+                                            <ezcomp:paginatorBrojElemenata brojKolona="#{wKorisnik.pageSize}"
+                                                                           raspon="#{wKorisnik.numbers}"
+                                                                           MyListener="#{wKorisnik.recreatePageSize}"
+                                                                           MyRender="listF1"/>
+                                                
+                                            
                                         </div>  
                     <ui:remove>
                     Trenutna stranica #{webKorisnik.currPage}<br/>
@@ -97,7 +112,10 @@
                     finalPage #{wKorisnik.finalPage}<br/>
                     listaSize #{wKorisnik.velicinaListe}<br/>
                     dtmdl #{wKorisnik.dtmdl.rowCount}
-                        </ui:remove>   
+                          
+                    
+                    </ui:remove> 
+                    
                 </h:form>
                 </div>
                 <br/>

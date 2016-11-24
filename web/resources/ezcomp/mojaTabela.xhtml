@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="items" required="true"/>
+        <composite:attribute name="controller" required="true"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+
+        <h:form id="form">
+
+            <h:panelGroup id="table">
+
+                <table>
+                    <ui:remove>
+                    <!-- HEADERS -->
+                    <tr>
+                        <c:forEach items="#{cc.attrs.items.getRowData().getClass().getDeclaredFields()}" var="field">
+
+                            <th>
+                                <ui:remove>
+                                <h:commandLink value="#{field.getName()}" action="#{dataModelController.getSorted(field.getName())}">
+                                    <f:ajax render="table"/>
+                                </h:commandLink>
+                                </ui:remove>
+                                <h:outputText value="#{field.getName()}" />
+                            </th>
+
+                        </c:forEach>
+                        
+                    </tr>
+                    </ui:remove>
+
+                    <!-- ROWS -->
+                    <c:forEach items="#{cc.attrs.items.getWrappedData()}" var="item">
+                        
+                        <tr>
+                            <c:forEach items="#{item.getClass().getDeclaredFields()}" var="field">
+
+                                <td>
+                                    <h:outputText value="#{item[field.getName()]}"/>
+                                </td>
+                                
+                            </c:forEach>
+
+                        </tr>
+
+                    </c:forEach>
+
+                </table>
+
+            </h:panelGroup>
+
+        </h:form>
+
+    </composite:implementation>
+
+</html>

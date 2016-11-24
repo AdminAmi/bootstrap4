@@ -30,6 +30,9 @@ public class login implements Serializable{
         this.clanNNV = clanNNV;
         this.email = eMail;       
     }
+    public String [] zaTabelu() {
+        return new String[]{"User","Password","Ime","Prezime","Rola","Clan NNV-a","E-Mail"};
+    }
     
     public String getUser() {  return user;  }
     public void setUser(String user) {  this.user = user;}

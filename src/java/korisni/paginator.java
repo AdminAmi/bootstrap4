@@ -22,18 +22,19 @@ public abstract class paginator {
     protected int selectedItemIndex;
     protected int velicinaListe;
     protected DataModel dtmdl = null;
+   
 
     public paginator() {
         //Postavljam defaultne opcije
         page = new int[]{5, 10, 15, 20, 30, 50};
         pageSize = 5;
-        currPage=1;
+        currPage=1;     
         
     }
     
      public DataModel getDtmdl() {
         if (dtmdl == null) {
-            dtmdl = createDataModel();
+            dtmdl = createDataModel();           
               
         }
         return dtmdl;
@@ -70,6 +71,7 @@ public abstract class paginator {
         recreateModel();
        // return "home";
     }
+    
 
     
 
@@ -87,23 +89,28 @@ public abstract class paginator {
     public int getSelectedItemIndex() {   return selectedItemIndex;  }
     public void setSelectedItemIndex(int selectedItemIndex) {   this.selectedItemIndex = selectedItemIndex;  }
     public void setDtmdl(DataModel dtmdl) {  this.dtmdl = dtmdl;  }
-
-    /**
-     * @return the dtmdl
-     */
-    public abstract DataModel createDataModel() ;
-
-    /**
-     * @return the velicinaListe
-     */
     public int getVelicinaListe() {    return velicinaListe; }
-
-    /**
-     * @param velicinaListe je broj clanova liste
-     */
     public  void setVelicinaListe(int velicinaListe){
         this.velicinaListe=velicinaListe;
     } 
+    /**
+     * Sljedeći primjer kako se kreira ova metoda
+     * int pado1=getPageSize()*getCurrPage();
+     * if(pado1>lk.getKorisnici().size()) pado1=lk.getKorisnici().size();        
+     * return new ListDataModel(podLista(getPageSize()*(getCurrPage()-1),pado1));
+     * @return the dtmdl
+     */
+    public abstract DataModel createDataModel() ;
+    /**
+     * 
+     * Treba postaviti osnovne parametre a to su velicina liste i i postaviti zadnju stranicu
+     * npr :
+     * setVelicinaListe(getLk().getKorisnici().size());
+     * setFinalPage((getVelicinaListe()/getPageSize())+1);
+     */
+    protected abstract void initParameters();
+     
+    
     
     
     

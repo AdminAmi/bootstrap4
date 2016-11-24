@@ -8,18 +8,15 @@
     </h:head>
     <h:body>
         <ui:composition>
-            <div style="padding-top: 80px;" >
-                <div class="container text-xs-right">
+            <div class="jumbotron" >
+                <div class="container">
                     <br/>
-                    <h1 style="color: gray"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
+                    <h1 style="color: darkolivegreen"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
                     <p class="lead">Dobro došli 
                       <i><strong><h:outputText  value="korisnik #{LogIn.korisnik.ime} #{LogIn.korisnik.prezime}"/></strong></i>
                       na web servis skeniranih dokumenata
                     </p>
-                    <!--
                     <hr class="my-1"/> 
-                    -->
-                    <br/><br/>
                     <ui:remove>
                     <div class="btn-group" role="group">
                         <button id="btnNNV" type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

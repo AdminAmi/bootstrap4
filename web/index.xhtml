@@ -11,18 +11,31 @@
         <h:outputScript name="bootstrap/js/bootstrap.min.js" library="resources"/>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
+    <h:body style="background-color: #eceeef;">
+        <nav class="navbar navbar-fixed-top navbar-light  " > 
+            <div class="container">
+            <!--<h1 class="navbar-brand mb-0 "><i class="fa fa-folder-open-o" aria-hidden="true"></i><i>Doc</i>SERVIS</h1>-->
+            <h:form class="form-inline float-xs-right">
+                
+                <button class="btn btn-outline-success" data-toggle="modal" data-target="#myModal"  type="button" jsf:rendered="${!LogIn.testRegistracije}">
+                    Log in &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>
+                </button>                                         
+             </h:form> 
+            </div>
+    </nav>
+        <!--
         <nav class="navbar navbar-fixed-top navbar-dark bg-inverse " style="background-color: white;">
             <div class="container">
-                <!--
+                
                 <button class="navbar-toggler hidden-lg-up float-xs-right" type="button" data-toggle="collapse" 
                          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">                             
                 </button> 
-                -->
+               
+                
                 <h1 class="navbar-brand mb-0 "><i class="fa fa-folder-open-o" aria-hidden="true"></i><i>Doc</i>SERVIS</h1>
-                <!--
+                
                 <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-                -->
+                
                       
                      
                    
@@ -32,25 +45,30 @@
                         </button>                                         
                      </h:form> 
                         
-                 <!--        
+                        
                 </div>
-                 -->
+                 
+                 
             </div>
         </nav>
-            
-         
+            -->
+         <!--
         <div class="jumbotron">
-            <div class="container">
+         -->
+         <div  style="padding-top: 80px;">
+            <div class="container text-xs-right">
                 <br/>
-                <h1 style="color: darkolivegreen"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
-              <p class="lead">Dobro došli na web servis skeniranih dokumenata </p>
-              <hr class="my-1"/>              
+                <h1 style="color: gray"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
+                <p class="lead"><i>Dobro došli na web servis skeniranih dokumenata </i></p>
+              
+             
             </div>
         </div>
-         <div class="container">
-             
+         <div class="container ">
+        <br/>    
         <h3>O programu!</h3>   
-               <ul class="small text-justify" style="list-style-type: none">
+        <hr class="my-0"/><br/>
+               <ul class="small text-justify " style="list-style-type: none">
                    
                <li>
                    Ideja ovoga projekta jeste da objedini na jednom mjestu dokumentaciju koja nastaje a koja je potrebna radnicima Tehničkog fakulteta u Bihaću.<br/>
@@ -82,8 +100,8 @@
         <div class="jumbotron">
             <div class="container">
                 <hr class="my-0"/> 
-                <p class="lead float-xs-left">DocServis</p>
-              <p class="lead float-xs-right">Autor : Amel Džanić</p>
+                <p class="lead small float-xs-left"><i>Doc</i>Servis v1.0</p>
+              <p class="lead small float-xs-right">Autor : Amel Džanić</p>
                              
             </div>
         </div>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="Prethodna" required="true"
+                      method-signature="void Prethodna()"/>
+        <cc:attribute name="NaPocetak" required="true"
+                      method-signature="void NaPocetak()"/>
+        <cc:attribute name="Sljedeca" required="true"
+                      method-signature="void Sljedeca()"/>
+        <cc:attribute name="NaKraj" required="true"
+                      method-signature="void NaKraj()"/>
+        <cc:attribute name="imaLiSljedeca" required="true"
+                      method-signature="java.lang.Boolean sljedeca()"/>
+        <cc:attribute name="imaLiPrethodna" required="true"
+                      method-signature="java.lang.Boolean prethodna()"/>
+        
+        
+        <cc:attribute name="trenutnaStr" required="true"/>
+        <cc:attribute name="finalnaStr" required="true"/>
+        
+        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        
+        <button   class="btn btn-default btn-sm" jsf:action="#{cc.attrs.NaPocetak}"
+                  jsf:disabled="#{not cc.attrs.imaLiPrethodna}" >
+            <span class="fa fa-step-backward"></span>
+        </button>
+        <button   class="btn btn-default btn-sm" jsf:action="#{cc.attrs.Prethodna}"
+                  jsf:disabled="#{not cc.attrs.imaLiPrethodna}">
+            <span class="fa fa-backward"></span>
+        </button>
+        &#xA0;
+        <span class="text-primary">#{cc.attrs.trenutnaStr}/#{cc.attrs.finalnaStr}</span>
+        &#xA0;
+        <button  class="btn btn-default btn-sm" jsf:action="#{cc.attrs.Sljedeca}" 
+                 jsf:disabled="#{not cc.attrs.imaLiSljedeca}">
+        <span class="fa fa-forward"></span>
+        </button>
+
+        <button   class="btn btn-default btn-sm" jsf:action="#{cc.attrs.NaKraj}"
+                  jsf:disabled="#{cc.attrs.trenutnaStr eq cc.attrs.finalnaStr}">
+        <span class="fa fa-step-forward"></span>
+        </button>
+        &#xA0; 
+                                            
+        
+    </cc:implementation>
+</html>
