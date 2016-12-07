@@ -127,7 +127,7 @@ public class KontrolerKorisnik {
         else {
             setTestRegistracije(false);
             reset();
-            utility.poruka("loginForm:myButton","Neuspješna prijava na sistem!!!");           
+            utility.errPoruka("Neuspješna prijava na sistem!!!","loginForm:myButton");           
         }
         return null;
     }

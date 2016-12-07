@@ -9,23 +9,10 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="/predlozak/master.xhtml">
-            <ui:remove>
-            <ui:define name="navigacija"> 
-                <ui:include src="/stranice/navigacija.xhtml"/>
-            </ui:define> 
-            
-            <ui:define name="jumboNav">
-                <ui:include src="/stranice/jumboNav.xhtml"/>
-            </ui:define>
-        </ui:remove>
-            
-            <ui:define name="tjelo">   
-                        
-                
-                <div class="container">
-                    <br/>
-                    <h3>O programu!</h3>  
+        <ui:composition template="/predlozak/master.xhtml"> 
+            <ui:define name="tjelo">
+                <div class="container">                    
+                    <h3 class="tekst-sjena" style="color: black">O programu!</h3>  
                     <hr class="my-1"/>     
                         <ul class="small text-justify" style="list-style-type: none">
                            <li>
@@ -50,14 +37,8 @@
                            </li>                  
                        </ul>
                 </div>
-            </ui:define>
-            <ui:remove>
-            <ui:define name="footer">
-                <ui:include src="/stranice/footer.xhtml"/>
-            </ui:define>
-            </ui:remove>
-        </ui:composition>
-         
+            </ui:define>            
+        </ui:composition>         
     </h:body>
 </html>
 

@@ -7,20 +7,26 @@
       xmlns:p="http://java.sun.com/jsf/passthrough">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <h:outputStylesheet library="resources" name="font-awesome-4.6.3/css/font-awesome.min.css" />        
+        <h:outputStylesheet library="resources" name="font-awesome-4.6.3/css/font-awesome.min.css" />    
+        <h:outputStylesheet library="resources" name="css/my.css" />    
         <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" library="resources"/>
         <h:outputScript name="bootstrap/js/jquery-2.2.4.min.js" library="resources"/>
         <h:outputScript name="bootstrap/js/bootstrap.min.js" library="resources"/>
         <title>DocSERVIS</title>
     </h:head>
+    <!--
     <h:body style="background-color: #eceeef;">
-        
+     -->
+     <h:body style="background-color: white">
         <ui:insert name="navigacija">
             <ui:include src="/stranice/navigacijaTest.xhtml"/>
         </ui:insert> 
         <ui:insert name="jumboNav">
             <ui:include src="/stranice/jumboNav.xhtml"/>
         </ui:insert>
+         <ui:insert name="greska">
+             <ui:include src="/stranice/greska.xhtml"/>
+         </ui:insert>
         <div style="background-color: white">
         <ui:insert name="tjelo"></ui:insert>
         </div>

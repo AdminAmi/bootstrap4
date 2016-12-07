@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 5, 2016, 9:05:02 AM
+    Author     : ami
+*/
+
+
+
+.bcKolor{
+  background: rgba(199,209,214,0.99);
+background: -moz-linear-gradient(top, rgba(199,209,214,0.99) 0%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(199,209,214,0.99)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(top, rgba(199,209,214,0.99) 0%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(top, rgba(199,209,214,0.99) 0%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(top, rgba(199,209,214,0.99) 0%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to bottom, rgba(199,209,214,0.99) 0%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7d1d6', endColorstr='#ffffff', GradientType=0 );
+}
+
+.bcKololorBack{
+    background: rgba(197,207,212,1);
+background: -moz-linear-gradient(left, rgba(197,207,212,1) 0%, rgba(250,250,250,1) 53%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(197,207,212,1)), color-stop(53%, rgba(250,250,250,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(left, rgba(197,207,212,1) 0%, rgba(250,250,250,1) 53%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(left, rgba(197,207,212,1) 0%, rgba(250,250,250,1) 53%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(left, rgba(197,207,212,1) 0%, rgba(250,250,250,1) 53%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to right, rgba(197,207,212,1) 0%, rgba(250,250,250,1) 53%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c5cfd4', endColorstr='#ffffff', GradientType=1 );
+}
+.bcKolordole-gore{
+    background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(199,209,214,1) 4%, rgba(199,209,214,0.99) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(4%, rgba(199,209,214,1)), color-stop(100%, rgba(199,209,214,0.99)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(199,209,214,1) 4%, rgba(199,209,214,0.99) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(199,209,214,1) 4%, rgba(199,209,214,0.99) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(199,209,214,1) 4%, rgba(199,209,214,0.99) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(199,209,214,1) 4%, rgba(199,209,214,0.99) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c7d1d6', GradientType=0 );
+}
+.tekst-sjena{    text-shadow: 1px 2px 2px rgba(150, 150, 150, 1);}
+.topright { position: absolute; top: 40px; right: 0px;  }
+.bootomright {position: absolute; bottom: 0px; right: 0px;}
+.linkbtn {appearance: button;-moz-appearance: button; -webkit-appearance: button; text-decoration: none; padding: 1px 10px;}
+.centered {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+        

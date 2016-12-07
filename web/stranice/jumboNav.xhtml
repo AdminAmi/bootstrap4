@@ -5,21 +5,21 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>IGNORED</title>
+        
     </h:head>
     <h:body>
         <ui:composition>
-            <div style="padding-top: 80px;" >
+            
+            <div class="bcKolor" style="padding-top: 80px; padding-bottom: 40px;" >
                 <div class="container text-xs-right">
                     <br/>
-                    <h1 style="color: gray"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
-                    <p class="lead">Dobro došli 
-                      <i><strong><h:outputText  value="korisnik #{LogIn.korisnik.ime} #{LogIn.korisnik.prezime}"/></strong></i>
+                    <h1 class="tekst-sjena" style="color: black"><i class="fa fa-folder-open-o" aria-hidden="true"></i><b><i>Doc</i>SERVIS</b></h1>
+                    <p class="lead ">Dobro došli 
+                        <i  style="color: navy"><strong><h:outputText  value="korisnik #{LogIn.korisnik.ime} #{LogIn.korisnik.prezime}"/></strong></i>
                       na web servis skeniranih dokumenata
                     </p>
-                    <!--
-                    <hr class="my-1"/> 
-                    -->
-                    <br/><br/>
+                   
+                    
                     <ui:remove>
                     <div class="btn-group" role="group">
                         <button id="btnNNV" type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

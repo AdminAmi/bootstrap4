@@ -5,6 +5,8 @@
  */
 package korisni;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -38,6 +40,11 @@ public abstract class paginator {
               
         }
         return dtmdl;
+    }
+     public List<Integer> getNumbers(){
+        List<Integer> listaStranica = new ArrayList();
+        for (int i=0;i<this.page.length;i++) listaStranica.add(new Integer(this.page[i]));
+        return listaStranica;
     }
    
     protected void recreateModel() { setDtmdl(null);  }

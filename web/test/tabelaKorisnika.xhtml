@@ -14,9 +14,10 @@
         <ui:composition template="/predlozak/master.xhtml">                     
             <ui:define name="tjelo">
                 <div class="container">
-                    <br/>
-                <h3>Administracija sistema</h3>
-                <br/>
+                   
+                    <h3 style="color: black" class="tekst-sjena">Administracija sistema</h3>
+                    <hr class="my-1"/> 
+                
                 
                 <div class="col-sm-3">
                     <b>Meni:</b><br/>
@@ -28,80 +29,49 @@
                         </nav>
                 </div>
                 <div class="col-sm-9">
-                <h:form id="listF1">
-                   
-                    <h:dataTable value="#{wKorisnik.dtmdl}" var="Korisnik"  class="table table-striped  table-hover  text-justify table-responsive " id="sviKorisnici" > 
-                                             <h:column  > 
-                                        <f:facet name="header" >ID</f:facet>#{Korisnik.id}
-                                        </h:column>                           
-                                        <h:column> 
-                                        <f:facet name="header">Ime i prezime</f:facet>
-                                        #{Korisnik.ime} #{Korisnik.prezime}
-                                        <!--
-                                            <a jsf:outcome="tabelaKorisnik" > #{Korisnik.ime} #{Korisnik.prezime}
-                                                <f:param name="ID" value="#{Korisnik.id}"/>                               
-                                            </a>
-                                        -->
-                                        </h:column>
-                                        <h:column> 
-                                            <f:facet name="header">E Mail</f:facet>#{Korisnik.email}
-                                        </h:column>
-                                        <h:column> 
-                                            <f:facet name="header">Korisničko ime</f:facet>#{Korisnik.user}
-                                        </h:column>
-                                        <h:column> 
-                                            <f:facet name="header">Uloga</f:facet>#{Korisnik.rola}
-                                        </h:column> 
-                                        </h:dataTable>
-                
-                 <div >
-                                        
-                                            
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik.firstPage()}"
-                                                      jsf:disabled="#{not wKorisnik.imaLiPrije()}">
-                                                <span class="fa fa-step-backward"></span>
-                                            </button>
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik.previous}"
-                                                      jsf:disabled="#{not wKorisnik.imaLiPrije()}">
-                                                <span class="fa fa-backward"></span>
-                                            </button>
-                                            &#xA0;
-                                            <span class="text-primary">#{wKorisnik.currPage}/#{wKorisnik.finalPage}</span>
-                                            &#xA0;
-                                            <button  class="btn btn-default btn-sm" jsf:disabled="#{not wKorisnik.imaLiJos()}"
-                                                     jsf:action="#{wKorisnik.next()}" >
-                                                <span class="fa fa-forward"></span>
-                                            </button>
-
-                                            <button   class="btn btn-default btn-sm" jsf:action="#{wKorisnik1.lastPage()}"
-                                                      jsf:disabled="#{wKorisnik.currPage eq wKorisnik.finalPage}">
-                                                <span class="fa fa-step-forward"></span>
-                                            </button>
-                                            &#xA0; 
-                                            
-                                            <h:selectOneMenu  class=" btn"   value="#{wKorisnik.pageSize}">
-                                                <f:selectItems  value="#{wKorisnik.page}" var="pg" 
-                                                                itemLabel="#{pg}" 
-                                                                itemValue="#{pg}"/>
-                                                <f:ajax listener="#{wKorisnik.recreatePageSize}" render="listF1"/>
-                                            </h:selectOneMenu>
-                                            
-                                            <br/>
-                                            <ezcomp:paginator NaPocetak="#{wKorisnik.firstPage()}"
-                                                              NaKraj="#{wKorisnik.lastPage()}"
-                                                              Prethodna="#{wKorisnik.previous()}"
-                                                              Sljedeca="#{wKorisnik.next()}"
-                                                              imaLiPrethodna="#{wKorisnik.imaLiPrije()}"
-                                                              imaLiSljedeca="#{wKorisnik.imaLiJos()}"
-                                                              finalnaStr="#{wKorisnik.finalPage}"
-                                                              trenutnaStr="#{wKorisnik.currPage}" />
-                                            <ezcomp:paginatorBrojElemenata brojKolona="#{wKorisnik.pageSize}"
-                                                                           raspon="#{wKorisnik.numbers}"
-                                                                           MyListener="#{wKorisnik.recreatePageSize}"
-                                                                           MyRender="listF1"/>
+                <h:form id="listF1">                   
+                    <h:dataTable value="#{wKorisnik.dtmdl}" var="Korisnik"  class="table table-responsive table-striped  table-hover  text-justify  " id="sviKorisnici" > 
+                        <h:column  > 
+                            <f:facet name="header" >ID</f:facet>#{Korisnik.id}
+                        </h:column>                           
+                        <h:column> 
+                            <f:facet name="header">Ime i prezime</f:facet>
+                            #{Korisnik.ime} #{Korisnik.prezime}
+                    <!--
+                        <a jsf:outcome="tabelaKorisnik" > #{Korisnik.ime} #{Korisnik.prezime}
+                            <f:param name="ID" value="#{Korisnik.id}"/>                               
+                        </a>
+                    -->
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">E Mail</f:facet>#{Korisnik.email}
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">Korisničko ime</f:facet>#{Korisnik.user}
+                        </h:column>
+                        <h:column> 
+                            <f:facet name="header">Uloga</f:facet>#{Korisnik.rola}
+                        </h:column> 
+                    </h:dataTable>  
+                    <br/>
+                    <ezcomp:paginator NaPocetak="#{wKorisnik.firstPage()}"
+                                      NaKraj="#{wKorisnik.lastPage()}"
+                                      Prethodna="#{wKorisnik.previous()}"
+                                      Sljedeca="#{wKorisnik.next()}"
+                                      imaLiPrethodna="#{wKorisnik.imaLiPrije()}"
+                                      imaLiSljedeca="#{wKorisnik.imaLiJos()}"
+                                      finalnaStr="#{wKorisnik.finalPage}"
+                                      trenutnaStr="#{wKorisnik.currPage}" 
+                                      cssButton="btn btn-default btn-sm"
+                                      brojKolona="#{wKorisnik.pageSize}"
+                                      raspon="#{wKorisnik.numbers}"
+                                      MyListener="#{wKorisnik.recreatePageSize}"
+                                      MyRender="listF1"
+                                      />
+                                           
                                                 
                                             
-                                        </div>  
+                                          
                     <ui:remove>
                     Trenutna stranica #{webKorisnik.currPage}<br/>
                     Finalna stranica #{webKorisnik.finalPage}

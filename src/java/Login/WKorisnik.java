@@ -41,11 +41,7 @@ public class WKorisnik extends korisni.paginator{
         initParameters(); 
         
     }
-    public List<Integer> getNumbers(){
-        List<Integer> listaStranica = new ArrayList();
-        for (int i=0;i<this.page.length;i++) listaStranica.add(new Integer(this.page[i]));
-        return listaStranica;
-    }
+    
     @Override
     protected void initParameters(){
         setVelicinaListe(getLk().getKorisnici().size());
